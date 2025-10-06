@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>🛍️ Techify Store ⚡</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- =============== 1️⃣ HEADER / NAVBAR =============== -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <h1 class="text-2xl font-bold text-blue-600">Techify Store ⚡</h1>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex-1 mx-4">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search products..."
+            class="w-full border rounded-full py-2 px-4 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Cart Section -->
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke-width="1.5" stroke="currentColor"
+                 class="w-7 h-7 text-gray-700">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2 5h14"/>
+            </svg>
+            <span id="cartCount"
+                  class="absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              0
+            </span>
+          </div>
+          <p class="text-gray-700 text-sm">Total: <span id="cartTotal">$0</span></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =============== 2️⃣ HERO BANNER =============== -->
+  <section class="bg-blue-500 text-white text-center py-16">
+    <h2 class="text-3xl font-bold mb-4">Find Your Perfect Gadget 💻</h2>
+    <button id="shopNowBtn"
+            class="bg-white text-blue-600 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition">
+      Shop Now
+    </button>
+  </section>
+
+  <!-- =============== 3️⃣ FILTER + SORT BAR =============== -->
+  <section class="max-w-7xl mx-auto px-6 py-6 flex flex-wrap gap-4 items-center justify-between">
+    <div>
+      <label for="categoryFilter" class="font-semibold mr-2">Category:</label>
+      <select id="categoryFilter" class="border rounded px-3 py-2 focus:ring-blue-400 focus:ring-2">
+        <option value="all">All</option>
+        <option value="laptop">Laptop</option>
+        <option value="headphones">Headphones</option>
+        <option value="keyboard">Keyboard</option>
+        <option value="monitor">Monitor</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="sortFilter" class="font-semibold mr-2">Sort by:</label>
+      <select id="sortFilter" class="border rounded px-3 py-2 focus:ring-blue-400 focus:ring-2">
+        <option value="default">Default</option>
+        <option value="low-high">Price: Low → High</option>
+        <option value="high-low">Price: High → Low</option>
+        <option value="rating">Rating: High → Low</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- =============== 4️⃣ PRODUCT GRID =============== -->
+  <main id="productGrid" class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+    <!-- Products dynamically injected by JS -->
+  </main>
+
+  <!-- =============== 5️⃣ CART SUMMARY PANEL =============== -->
+  <aside id="cartSummary"
+         class="fixed right-4 bottom-4 bg-white shadow-lg rounded-2xl p-4 w-72 max-h-[70vh] overflow-y-auto hidden">
+    <h3 class="text-lg font-bold mb-2">🛒 Cart Summary</h3>
+    <ul id="cartItems" class="space-y-2"></ul>
+    <hr class="my-2">
+    <p class="font-semibold text-gray-700">Total Items: <span id="cartItemCount">0</span></p>
+    <p class="font-semibold text-gray-700">Total Price: <span id="cartTotalSummary">$0</span></p>
+  </aside>
+
+  <!-- =============== JS FILE =============== -->
+  <script src="index.js"></script>
+
+    
+</body>
+</html>
